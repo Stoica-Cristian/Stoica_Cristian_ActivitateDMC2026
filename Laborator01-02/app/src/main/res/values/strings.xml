@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Laborator 01</string>
+    <string name="press_me">Press Me</string>
+    <string name="plainText">Text Box</string>
+    <string name="textView">Hello World!</string>
+    <string name="text_changed">Another text</string>
+</resources>

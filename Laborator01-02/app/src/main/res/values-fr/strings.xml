@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Laboratoire 01</string>
+    <string name="press_me">Appuyez sur moi</string>
+    <string name="plainText">Zone de texte</string>
+    <string name="textView">Bonjour le monde!</string>
+    <string name="text_changed">Le texte a changé!</string>
+</resources>
