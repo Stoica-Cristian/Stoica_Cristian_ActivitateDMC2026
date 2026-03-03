@@ -1,8 +1,6 @@
-package com.example.laborator01;
+package com.example.laborator03;
 
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,10 +20,5 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
-        Button button = findViewById(R.id.button);
-        TextView textView = findViewById(R.id.textView);
-
-        button.setOnClickListener(v -> textView.setText(R.string.text_changed));
     }
 }
