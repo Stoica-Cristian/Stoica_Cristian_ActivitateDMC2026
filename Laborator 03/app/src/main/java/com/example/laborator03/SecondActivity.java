@@ -21,8 +21,8 @@ public class SecondActivity extends AppCompatActivity {
                     String mesaj = data.getStringExtra("raspuns");
                     int suma = data.getIntExtra("suma", 0);
 
-                    String ToastMessage = mesaj + "\nSuma: " + suma;
-                    Toast.makeText(this, ToastMessage, Toast.LENGTH_LONG).show();
+                    String text = mesaj + "\nSuma: " + suma;
+                    Toast.makeText(this, text, Toast.LENGTH_LONG).show();
                 }
             }
     );
