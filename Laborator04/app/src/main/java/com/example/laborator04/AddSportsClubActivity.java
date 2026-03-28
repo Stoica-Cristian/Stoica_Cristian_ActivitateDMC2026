@@ -25,6 +25,7 @@ import java.util.Locale;
 public class AddSportsClubActivity extends AppCompatActivity {
 
     public static final String EXTRA_CLUB = "com.example.laborator04.EXTRA_CLUB";
+    public static final String EXTRA_POSITION = "com.example.laborator04.EXTRA_POSITION";
 
     private EditText etClubName, etMemberCount, etEstablishmentDate;
     private CheckBox cbHasEquipment;
@@ -37,6 +38,7 @@ public class AddSportsClubActivity extends AppCompatActivity {
     
     private final Calendar calendar = Calendar.getInstance();
     private final SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy", Locale.getDefault());
+    private int position = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +48,15 @@ public class AddSportsClubActivity extends AppCompatActivity {
         initializeViews();
         setupSpinner();
         setupDatePicker();
+
+        Intent intent = getIntent();
+        if (intent.hasExtra(EXTRA_CLUB)) {
+            SportsClub club = intent.getParcelableExtra(EXTRA_CLUB, SportsClub.class);
+            position = intent.getIntExtra(EXTRA_POSITION, -1);
+            if (club != null) {
+                fillData(club);
+            }
+        }
 
         btnSave.setOnClickListener(v -> {
             String name = etClubName.getText().toString();
@@ -69,9 +80,32 @@ public class AddSportsClubActivity extends AppCompatActivity {
 
             Intent resultIntent = new Intent();
             resultIntent.putExtra(EXTRA_CLUB, club);
+            resultIntent.putExtra(EXTRA_POSITION, position);
             setResult(RESULT_OK, resultIntent);
             finish();
         });
+    }
+
+    private void fillData(SportsClub club) {
+        etClubName.setText(club.getName());
+        etMemberCount.setText(String.valueOf(club.getMemberCount()));
+        cbHasEquipment.setChecked(club.hasEquipment());
+        
+        if ("Urban".equals(club.getCategory())) {
+            rgCategory.check(R.id.rbUrban);
+        } else if ("Rural".equals(club.getCategory())) {
+            rgCategory.check(R.id.rbRural);
+        }
+
+        spSportType.setSelection(((ArrayAdapter)spSportType.getAdapter()).getPosition(club.getSportType()));
+        rbRating.setRating(club.getRating());
+        swIsPrivate.setChecked(club.isPrivate());
+        tbIsOpen.setChecked(club.isOpen());
+        
+        if (club.getEstablishmentDate() != null) {
+            calendar.setTime(club.getEstablishmentDate());
+            etEstablishmentDate.setText(dateFormat.format(club.getEstablishmentDate()));
+        }
     }
 
     private void initializeViews() {
