@@ -1,8 +1,13 @@
 package com.example.laborator04;
 
 import android.app.DatePickerDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -11,12 +16,15 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RatingBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.materialswitch.MaterialSwitch;
 
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -26,6 +34,8 @@ public class AddSportsClubActivity extends AppCompatActivity {
 
     public static final String EXTRA_CLUB = "com.example.laborator04.EXTRA_CLUB";
     public static final String EXTRA_POSITION = "com.example.laborator04.EXTRA_POSITION";
+    private static final String FILE_NAME = "sports_clubs.txt";
+    private static final String PREFS_NAME = "AppSettings";
 
     private EditText etClubName, etMemberCount, etEstablishmentDate;
     private CheckBox cbHasEquipment;
@@ -46,6 +56,7 @@ public class AddSportsClubActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_sports_club);
 
         initializeViews();
+        applySettings();
         setupSpinner();
         setupDatePicker();
 
@@ -78,12 +89,52 @@ public class AddSportsClubActivity extends AppCompatActivity {
 
             SportsClub club = new SportsClub(name, members, isPrivate, sportType, rating, hasEquipment, category, isOpen, date);
 
+            if (position == -1) {
+                saveToFile(club);
+            }
+
             Intent resultIntent = new Intent();
             resultIntent.putExtra(EXTRA_CLUB, club);
             resultIntent.putExtra(EXTRA_POSITION, position);
             setResult(RESULT_OK, resultIntent);
             finish();
         });
+    }
+
+    private void applySettings() {
+        SharedPreferences prefs = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
+        float size = prefs.getFloat("textSize", 18f);
+        String colorName = prefs.getString("textColor", "Black");
+        int color = Color.BLACK;
+        
+        switch (colorName) {
+            case "Red": color = Color.RED; break;
+            case "Blue": color = Color.BLUE; break;
+            case "Green": color = Color.GREEN; break;
+        }
+
+        applyToViewGroup((ViewGroup) findViewById(android.R.id.content), size, color);
+    }
+
+    private void applyToViewGroup(ViewGroup layout, float size, int color) {
+        for (int i = 0; i < layout.getChildCount(); i++) {
+            View v = layout.getChildAt(i);
+            if (v instanceof TextView) {
+                ((TextView) v).setTextSize(size);
+                ((TextView) v).setTextColor(color);
+            } else if (v instanceof ViewGroup) {
+                applyToViewGroup((ViewGroup) v, size, color);
+            }
+        }
+    }
+
+    private void saveToFile(SportsClub club) {
+        try (FileOutputStream fos = openFileOutput(FILE_NAME, Context.MODE_APPEND);
+             OutputStreamWriter osw = new OutputStreamWriter(fos)) {
+            osw.write(club.toString() + "\n---\n");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void fillData(SportsClub club) {
