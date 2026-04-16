@@ -3,57 +3,109 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
-    android:id="@+id/main">
+    android:padding="12dp"
+    android:id="@+id/main"
+    android:background="#FAFAFA">
+
+    <!-- Sectiune Operatii (Scrollable) -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="OPERAȚII ȘI FILTRE"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:textColor="#333333"
+        android:layout_marginBottom="8dp"/>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:background="@android:color/white"
+        android:padding="10dp"
+        android:elevation="2dp"
+        android:layout_marginBottom="12dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <EditText android:id="@+id/et_name" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Nume produs" />
-            <EditText android:id="@+id/et_price" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Pret" android:inputType="numberDecimal" />
-            <EditText android:id="@+id/et_quantity" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Cantitate" android:inputType="number" />
-
-            <Button android:id="@+id/btn_insert" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="1. Inserare" />
-
-            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="@android:color/darker_gray" android:layout_marginVertical="8dp"/>
-
-            <Button android:id="@+id/btn_get_all" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="2. Selectie Toate" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Adăugare Produs"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:textColor="#666666"
+                android:layout_marginBottom="4dp"/>
 
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                <EditText android:id="@+id/et_search_name" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:hint="Nume de cautat" />
-                <Button android:id="@+id/btn_get_by_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="3. Cauta Nume" />
+                <EditText android:id="@+id/et_name" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="2" android:hint="Nume" android:textSize="14sp" />
+                <EditText android:id="@+id/et_price" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:hint="Preț" android:inputType="numberDecimal" android:textSize="14sp"/>
+                <EditText android:id="@+id/et_quantity" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:hint="Cant" android:inputType="number" android:textSize="14sp"/>
             </LinearLayout>
 
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                <EditText android:id="@+id/et_min_q" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:hint="Min Q" android:inputType="number" />
-                <EditText android:id="@+id/et_max_q" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:hint="Max Q" android:inputType="number" />
-                <Button android:id="@+id/btn_get_range" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="4. Interval Q" />
+            <Button android:id="@+id/btn_insert" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Inserare Produs" android:minHeight="44dp" android:layout_marginTop="4dp" android:backgroundTint="#4CAF50"/>
+
+            <View android:layout_width="match_parent" android:layout_height="1dp" android:background="#EEEEEE" android:layout_marginVertical="12dp"/>
+
+            <Button android:id="@+id/btn_get_all" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Afișează Toate Înregistrările" android:layout_marginBottom="8dp" android:minHeight="44dp"/>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="4dp">
+                <EditText android:id="@+id/et_search_name" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:hint="Căutare după nume" android:textSize="14sp"/>
+                <Button android:id="@+id/btn_get_by_name" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Caută" android:textSize="11sp" android:minHeight="38dp"/>
             </LinearLayout>
 
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                <EditText android:id="@+id/et_price_threshold" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:hint="Prag Pret" android:inputType="numberDecimal" />
-                <Button android:id="@+id/btn_delete_price" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="5. Sterge > Pret" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="4dp">
+                <EditText android:id="@+id/et_min_q" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:hint="Min Q" android:inputType="number" android:textSize="14sp"/>
+                <EditText android:id="@+id/et_max_q" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:hint="Max Q" android:inputType="number" android:textSize="14sp"/>
+                <Button android:id="@+id/btn_get_range" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Filtru Q" android:textSize="11sp" android:minHeight="38dp"/>
             </LinearLayout>
 
-            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-                <EditText android:id="@+id/et_prefix" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:hint="Litera/Prefix" />
-                <Button android:id="@+id/btn_update_prefix" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="6. Increment Prefix" />
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:layout_marginBottom="4dp">
+                <EditText android:id="@+id/et_price_threshold" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:hint="Prag Preț" android:inputType="numberDecimal" android:textSize="14sp"/>
+                <Button android:id="@+id/btn_delete_price" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Șterge >" android:textSize="11sp" android:backgroundTint="#F44336" android:minHeight="38dp"/>
+            </LinearLayout>
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+                <EditText android:id="@+id/et_prefix" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:hint="Prefix" android:textSize="14sp"/>
+                <Button android:id="@+id/btn_update_prefix" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Inc. Q" android:textSize="11sp" android:backgroundTint="#FF9800" android:minHeight="38dp"/>
             </LinearLayout>
 
         </LinearLayout>
     </ScrollView>
 
+    <!-- Sectiune Rezultate -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="REZULTATE BAZĂ DE DATE"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:textColor="#333333"
+        android:layout_marginBottom="8dp"/>
+
     <ListView
         android:id="@+id/lv_products"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:background="@android:color/white"
+        android:divider="#EEEEEE"
+        android:dividerHeight="1dp"
+        android:elevation="2dp"
+        android:layout_marginBottom="12dp"/>
+
+    <!-- Buton Lab 9 la baza ecranului -->
+    <Button
+        android:id="@+id/btn_open_images"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="→ Deschide Galerie Imagini (Lab 9)"
+        android:backgroundTint="#6200EE"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:elevation="4dp"/>
 
 </LinearLayout>

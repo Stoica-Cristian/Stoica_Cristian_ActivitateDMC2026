@@ -1,5 +1,6 @@
 package com.example.laborator08;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -16,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
 
     private EditText etName, etPrice, etQuantity;
     private EditText etSearchName, etMinQ, etMaxQ, etPriceThreshold, etPrefix;
-    private Button btnInsert, btnGetAll, btnGetByName, btnGetRange, btnDeletePrice, btnUpdatePrefix;
+    private Button btnInsert, btnGetAll, btnGetByName, btnGetRange, btnDeletePrice, btnUpdatePrefix, btnOpenImages;
     private ListView lvProducts;
 
     private AppDatabase db;
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
         btnGetRange = findViewById(R.id.btn_get_range);
         btnDeletePrice = findViewById(R.id.btn_delete_price);
         btnUpdatePrefix = findViewById(R.id.btn_update_prefix);
+        btnOpenImages = findViewById(R.id.btn_open_images);
 
         lvProducts = findViewById(R.id.lv_products);
     }
@@ -61,6 +63,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupListeners() {
+        btnOpenImages.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, ImagesActivity.class);
+            startActivity(intent);
+        });
+
         // 1. Inserare
         btnInsert.setOnClickListener(v -> {
             String name = etName.getText().toString();
