@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="18dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Formular caz"
+            android:textColor="@color/text_primary"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvRelatedEvent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/text_secondary" />
+
+        <Button
+            android:id="@+id/btnOpenRelatedEvent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Deschide incidentul asociat"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/etCaseTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="Titlu caz"
+            android:importantForAutofill="no"
+            android:inputType="textCapSentences" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Status"
+            android:textColor="@color/text_primary"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/spCaseStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <CheckBox
+            android:id="@+id/cbNotify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Necesita urmarire" />
+
+        <TextView
+            android:id="@+id/tvDueDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/text_primary"
+            android:textStyle="bold" />
+
+        <CalendarView
+            android:id="@+id/calendarDueDate"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Scor relevanta"
+            android:textColor="@color/text_primary"
+            android:textStyle="bold" />
+
+        <RatingBar
+            android:id="@+id/ratingCase"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:progressBackgroundTint="@color/rating_star_inactive"
+            android:progressTint="@color/rating_star_active"
+            android:secondaryProgressTint="@color/rating_star_active"
+            android:stepSize="0.5" />
+
+        <EditText
+            android:id="@+id/etCaseNotes"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:gravity="top"
+            android:hint="Note analiza, ipoteze si pasi urmatori"
+            android:importantForAutofill="no"
+            android:inputType="textMultiLine" />
+
+        <TextView
+            android:id="@+id/tvResolutionLabel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="Concluzie inchidere"
+            android:textColor="@color/text_primary"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etCaseResolution"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="top"
+            android:hint="Se completeaza la inchidere: rezultat analiza, cauza si actiune finala"
+            android:importantForAutofill="no"
+            android:inputType="textMultiLine" />
+
+        <Button
+            android:id="@+id/btnSaveCase"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Salveaza caz" />
+
+        <Button
+            android:id="@+id/btnDeleteCase"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Sterge caz" />
+
+        <Button
+            android:id="@+id/btnBackCaseForm"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Inapoi" />
+    </LinearLayout>
+</ScrollView>

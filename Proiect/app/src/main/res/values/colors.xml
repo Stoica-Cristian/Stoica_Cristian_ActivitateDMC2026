@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="app_background">#EEF4F6</color>
+    <color name="surface">#FFFFFF</color>
+    <color name="surface_alt">#F7FAFB</color>
+    <color name="surface_selected">#DDF3F1</color>
+    <color name="border_subtle">#CBDCE2</color>
+    <color name="divider_subtle">#D8E4E8</color>
+
+    <color name="text_primary">#0E252D</color>
+    <color name="text_secondary">#526A73</color>
+    <color name="text_muted">#7A8C94</color>
+
+    <color name="accent_primary">#0B7F86</color>
+    <color name="accent_blue">#246BBD</color>
+    <color name="accent_warm">#B66A00</color>
+    <color name="rating_star_active">#FFC107</color>
+    <color name="rating_star_inactive">#D8E4E8</color>
+
+    <color name="risk_high">#C62828</color>
+    <color name="risk_low">#2E7D32</color>
+
+    <color name="nav_selected">@color/accent_primary</color>
+    <color name="nav_unselected">#778B93</color>
+</resources>

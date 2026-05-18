@@ -102,7 +102,7 @@
         android:id="@+id/btn_open_images"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="→ Deschide Galerie Imagini (Lab 9)"
+        android:text="Galerie Imagini"
         android:backgroundTint="#6200EE"
         android:textColor="@android:color/white"
         android:textStyle="bold"

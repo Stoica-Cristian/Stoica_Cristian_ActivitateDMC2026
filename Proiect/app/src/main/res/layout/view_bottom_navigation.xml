@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/bottomNavigation"
+    android:layout_width="match_parent"
+    android:layout_height="72dp"
+    android:background="@drawable/bg_bottom_navigation"
+    android:baselineAligned="false"
+    android:elevation="10dp"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:paddingStart="8dp"
+    android:paddingTop="6dp"
+    android:paddingEnd="8dp"
+    android:paddingBottom="6dp">
+
+    <LinearLayout
+        android:id="@+id/nav_home"
+        style="@style/ProiectBottomNavItem">
+
+        <ImageView
+            style="@style/ProiectBottomNavIcon"
+            android:contentDescription="Acasa"
+            android:src="@drawable/ic_nav_home" />
+
+        <TextView
+            style="@style/ProiectBottomNavLabel"
+            android:text="Acasa" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/nav_feed"
+        style="@style/ProiectBottomNavItem">
+
+        <ImageView
+            style="@style/ProiectBottomNavIcon"
+            android:contentDescription="Feed"
+            android:src="@drawable/ic_nav_feed" />
+
+        <TextView
+            style="@style/ProiectBottomNavLabel"
+            android:text="Feed" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/nav_map"
+        style="@style/ProiectBottomNavItem">
+
+        <ImageView
+            style="@style/ProiectBottomNavIcon"
+            android:contentDescription="Harta"
+            android:src="@drawable/ic_nav_map" />
+
+        <TextView
+            style="@style/ProiectBottomNavLabel"
+            android:text="Harta" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/nav_cases"
+        style="@style/ProiectBottomNavItem">
+
+        <ImageView
+            style="@style/ProiectBottomNavIcon"
+            android:contentDescription="Cazuri"
+            android:src="@drawable/ic_nav_cases" />
+
+        <TextView
+            style="@style/ProiectBottomNavLabel"
+            android:text="Cazuri" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/nav_analytics"
+        style="@style/ProiectBottomNavItem">
+
+        <ImageView
+            style="@style/ProiectBottomNavIcon"
+            android:contentDescription="Analiza"
+            android:src="@drawable/ic_nav_analytics" />
+
+        <TextView
+            style="@style/ProiectBottomNavLabel"
+            android:text="Analiza" />
+    </LinearLayout>
+</LinearLayout>
