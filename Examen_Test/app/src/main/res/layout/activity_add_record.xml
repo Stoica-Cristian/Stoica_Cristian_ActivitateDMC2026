@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <EditText
+        android:id="@+id/etModel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Model Auto" />
+
+    <EditText
+        android:id="@+id/etPret"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Pret"
+        android:inputType="numberDecimal" />
+
+    <EditText
+        android:id="@+id/etDurata"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Durata (ore)"
+        android:inputType="number" />
+
+    <CheckBox
+        android:id="@+id/cbPiese"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Piese incluse" />
+
+    <EditText
+        android:id="@+id/etMecanic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nume Mecanic" />
+
+    <Button
+        android:id="@+id/btnSalveaza"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Salveaza Inregistrare" />
+
+</LinearLayout>
